@@ -18,7 +18,6 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "pg-promise": "^10.11.1",
-    "postgres": "^1.0.2",
     "sequelize": "^6.17.0",
     "sequelize-cli": "^6.4.1"
   },

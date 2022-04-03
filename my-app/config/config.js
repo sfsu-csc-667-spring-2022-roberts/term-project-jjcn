@@ -1,4 +1,6 @@
-require('dotenv').config();
+let b = require('dotenv').config();
+console.log('asdfdsf');
+console.log(b)
 
 module.exports = {
   "development": {
