@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  p Create an account to start playing
+  br
+  form(name="register-form", method="post")
+    div.input
+      span.label email
+      input(type=email, name="email")
+    div.input
+      span.label username
+      input(type="text", name="username")
+    div.input
+      span.label password
+      input(type=password, name="password")
+    div.actions
+      input(type="submit", value="Register")

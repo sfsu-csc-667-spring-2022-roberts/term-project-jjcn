@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Enter your login credentials
+  br
+  form(name="login-form", method="post")
+    div.input
+      span.label username
+      input(type="text", name="username")
+    div.input
+      span.label password
+      input(type=password, name="password")
+    div.actions
+      input(type="submit", value="Login")
