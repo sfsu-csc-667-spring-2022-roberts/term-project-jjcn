@@ -14,7 +14,7 @@ var usersRouter = require('./routes/users');
 // new
 console.log('hiii');
 var testRouter = require('./routes/test')
-const { test } = require('./config/config');
+// const { test } = require('./config/config');
 
 
 var app = express();

@@ -47,5 +47,11 @@ body {
   background-color: pink;
 }
 
+.chat {
+  grid-column: 10/13;
+  grid-row: 11;
+  background-color: rgb(209, 211, 154);
+}
+
 
 
