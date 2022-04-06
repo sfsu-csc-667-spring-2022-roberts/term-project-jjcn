@@ -7,8 +7,7 @@
     "start:dev": "NODE_ENV=development DEBUG=APP_NAME:* nodemon ./bin/www",
     "db:create:migration": "npx sequelize migration:generate --name ",
     "db:migrate": "npx sequelize db:migrate",
-    "db:rollback": "npx sequelize db:migrate:undo",
-    "postinstall": "npx sequelize db:migrate" 
+    "db:rollback": "npx sequelize db:migrate:undo"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
