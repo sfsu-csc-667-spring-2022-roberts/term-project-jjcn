@@ -14,6 +14,7 @@ var usersRouter = require('./routes/users');
 // new
 console.log('hiii');
 var testRouter = require('./routes/test')
+var loginRouter = require('./routes/login');
 const { test } = require('./config/config');
 
 
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/test', testRouter)
+app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
