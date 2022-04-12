@@ -1,22 +1,15 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <title>Login</title>
-</head>
-<body>
-    <form>
-        <div class="form-name">Login</div>
-        <div class="login-container">
-            <label for="username">Username</label>
-            <input type="text" placeholder="Enter Username..." name="username">
+extends layout
 
-            <label>Password</label>
-            <input type="password" placeholder="Enter Password..." name="password">
-            <button type="submit">Login</button>
-        </div>
-    </form>
-</body>
-</html>
+block content
+  form(class="form", method="post")
+    div.box-header
+      h1= title
+    div.form-content
+      p Enter your login credentials
+      br
+      div.form-input
+        input(type="text", name="username", placeholder="username")
+      div.form-input
+        input(type="password", name="password", placeholder="password")
+      div.form-actions
+        input(type="submit", value="Log In")

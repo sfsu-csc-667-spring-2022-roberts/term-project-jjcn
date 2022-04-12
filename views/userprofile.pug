@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    div.profile-container
+        div.profile-photo
+            img(src="#{user.photo}")
+        div.profile-info
+            h1= "@" + user.username
+            p= user.bio
+        div.profile-ratio
+            h1 W/L
+            h1= user.wins + "/" + user.loses
+    div.profile-game-history.profile-container
+        ul
+            for game in user.history
+                - var players = game.players_list;
+                - var players_text = players.join(", ");
+                div.game-item
+                    div.circle
+                        p= game.status
+                    li= game.date + " | " + game.duration + " | " + game.players_num + " | " + players_text

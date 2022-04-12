@@ -12,10 +12,13 @@ if(process.env.NODE_ENV === 'development') {
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 // new
-console.log('hiii');
 var testRouter = require('./routes/test')
-// const { test } = require('./config/config');
 
+// From chi-frontend
+var loginRouter = require('./routes/login');
+var registerRouter = require('./routes/register');
+var userprofileRouter = require('./routes/userprofile');
+var lobbyRouter = require('./routes/lobby');
 
 var app = express();
 
@@ -32,6 +35,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/test', testRouter)
+
+// From chi-frontend
+app.use('/login', loginRouter);
+app.use('/register', registerRouter);
+app.use('/userprofile', userprofileRouter);
+app.use('/lobby', lobbyRouter);
+
+
 // app.use('/register', registerRouter);
 
 // catch 404 and forward to error handler
