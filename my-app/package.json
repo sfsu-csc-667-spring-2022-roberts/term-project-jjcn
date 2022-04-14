@@ -8,7 +8,7 @@
     "db:create:migration": "npx sequelize migration:generate --name ",
     "db:migrate": "npx sequelize db:migrate",
     "db:rollback": "npx sequelize db:migrate:undo",
-    "postinstall": "npx sequelize db:migrate" 
+    "postinstall": "npx sequelize db:migrate"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -19,7 +19,7 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "pg-promise": "^10.11.1",
-    "sequelize": "^6.17.0",
+    "sequelize": "^6.19.0",
     "sequelize-cli": "^6.4.1"
   },
   "devDependencies": {
