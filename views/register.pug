@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  form(class="form", method="post")
+    div.box-header
+      h1= title
+    div.form-content
+      p Create an account to start playing
+      br
+      div.form-input
+        input(type="email", name="email", placeholder="email")
+      div.form-input
+        input(type="text", name="username", placeholder="username")
+      div.form-input
+        input(type="password", name="password", placeholder="password")
+      label.form-input
+        input(type="text", name="photo", placeholder="optional photo")
+      div.form-actions
+        input(type="submit", value="Register")

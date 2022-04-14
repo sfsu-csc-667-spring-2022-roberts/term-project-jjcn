@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    div.lobby-container
+        div.container.chat-box
+            div.box-header
+                h1 Global Chat
+            div.chat-box-content
+                for message in chat
+                    div.chat-item
+                        img(src="#{message.photo}")
+                        p= message.user + ": " + message.message
+            div.chat-input
+                form.flex-row(method="post" action="#")
+                    input.chat-textbox(type="text" placeholder="chat...")
+                    input.chat-action(type="submit", value=">")
+
+
+        div.container.game-list
+            div.box-header
+                h1 Game List
+            div.game-box-content
+                form.join-game(method="post" action="#")
+                    input(type="text" placeholder="enter code")
+                    input(type="submit" value="Join Game")
+
+                ul.flex-col.online-games
+                    li game 1
+                    li game 2
+                    li game 3

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  form(class="form", method="post")
+    div.box-header
+      h1= title
+    div.form-content
+      p Enter your login credentials
+      br
+      div.form-input
+        input(type="text", name="username", placeholder="username")
+      div.form-input
+        input(type="password", name="password", placeholder="password")
+      div.form-actions
+        input(type="submit", value="Log In")
