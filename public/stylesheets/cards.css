@@ -1,0 +1,87 @@
+.unoCard {
+    display: inline-block;
+    background: #000 url("/images/spritesheet_uno.png") no-repeat;
+    width: 130px;
+    height: 180px;
+    border-radius: 10px;
+}
+
+.unoCard:hover{
+    border: white solid 5px;
+}
+
+.red {
+    background-position-y: -33px;
+}
+
+.yellow {
+    background-position-y: -228px;
+}
+
+.green {
+    background-position-y: -425px;
+}
+
+.blue {
+    background-position-y: -620px;
+}
+
+.reverse {
+    background-position-x: -189px;
+}
+
+.skip {
+    background-position-x: -49px;
+}
+
+.draw2 {
+    background-position-x: -329px;
+}
+
+.draw4 {
+    background-position: -1869px -228px;
+}
+
+.card0 {
+    background-position-x: -469px;
+}
+
+.card1 {
+    background-position-x: -609px;
+}
+
+.card2 {
+    background-position-x: -749px;
+}
+
+.card3 {
+    background-position-x: -889px;
+}
+
+.card4 {
+    background-position-x: -1029px;
+}
+
+.card5 {
+    background-position-x: -1169px;
+}
+
+.card6 {
+    background-position-x: -1309px;
+}
+
+.card7 {
+    background-position-x: -1449px;
+}
+
+.card8 {
+    background-position-x: -1589px;
+}
+
+.card9 {
+    background-position-x: -1729px;
+}
+
+.card-back {
+    background-position: -1869px -33px;
+}
