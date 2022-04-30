@@ -1,124 +1,156 @@
- body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgb(90, 88, 133);
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: rgb(90, 88, 133);
+    /*height: 100vh;*/
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: 50px;
-  grid-auto-columns: 1fr;
+    display: grid;
+    grid-template-areas:
+    ". top-deck top-deck top-deck ."
+    "left-deck pile pile pile right-deck"
+    "left-deck pile pile pile right-deck"
+    ". bottom-deck bottom-deck bottom-deck chat";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 180px 1fr 1fr 1fr;
+    /*background-color: white;*/
+    max-height: 850px;
+    padding-top: 15px;
+    background-image: radial-gradient(ellipse, #9390da, #5a5885, #2c2b41);
+}
 
-  grid-area: auto;
-  background-color: white;
+.playerDeck {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    display: grid;
 }
 
 .playerOne {
-  grid-column: 5 / 9;
-  grid-row: 11;
-  background-color: green;
+    grid-area: bottom-deck;
+    /*background-color: green;*/
+    grid-template-columns: repeat(auto-fit,  minmax(10px, max-content)) ;
+
 }
+
+.playerOne > .unoCard:hover {
+    z-index: 99;
+}
+
 .playerTwo {
-  grid-column: 12;
-  grid-row: 4/9;
-  background-color: rgb(136, 187, 136);
+    grid-area: right-deck;
+    /*background-color: rgb(136, 187, 136);*/
+    grid-template-rows: repeat(auto-fit,  minmax(10px, max-content)) ;
+
 }
+
 .playerThree {
-  grid-column: 5 / 9;
-  grid-row: 1;
-  background-color: teal;
+    grid-area: top-deck;
+    /*background-color: teal;*/
+    grid-template-columns: repeat(auto-fit,  minmax(10px, max-content)) ;
+
 }
 
 .playerFour {
-  grid-column: 1 ;
-  grid-row: 4/10;
-  background-color: rgb(34, 188, 34);
+    grid-area: left-deck;
+    /*background-color: rgb(34, 188, 34);*/
+    grid-template-rows: repeat(auto-fit,  minmax(10px, max-content)) ;
+
+}
+
+.pile {
+    grid-area: pile;
+    display: flex;
+    align-content: space-between;
+    padding: 20px;
+    gap: 30px;
+    margin: auto;
 }
 
 .deck {
-  grid-column: 5 / 6;
-  grid-row: 4/8;
-  background-color: red;
+    display: inline;
+    background-color: red;
 }
 .played {
-  grid-column: 8 / 9;
-  grid-row: 4/8;
-  background-color: pink;
+    background-color: pink;
 }
 
 .chat {
-  grid-column: 10/13;
-  grid-row: 11;
-  background-color: rgb(209, 211, 154);
+    grid-area: chat;
+    z-index: 99;
+    background-color: rgb(209, 211, 154);
+    height: 150px;
+    align-self: end;
 }
 
 
 
 .login-container, .register-container {
-  padding: 20px;
-  background-color: rgb(240, 240, 240);
+    padding: 20px;
+    background-color: rgb(240, 240, 240);
 }
 
 input[type=text], input[type=password], input[type=email] {
-  width: 100%;
-  margin: 8px 0;
-  padding: 12px 20px;
-  display: inline-block;
-  border: 2px solid rgb(15, 43, 71);
-  box-sizing: border-box;
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 2px solid rgb(15, 43, 71);
+    box-sizing: border-box;
 }
 
 button {
-  background-color: #4CAF50;
-  width: 100%;
-  color: white;
-  padding: 15px;
-  margin: 10px 0px;
-  border: none;
-  cursor: pointer;
-  font-size: 100%;
-  }
+    background-color: #4CAF50;
+    width: 100%;
+    color: white;
+    padding: 15px;
+    margin: 10px 0px;
+    border: none;
+    cursor: pointer;
+    font-size: 100%;
+}
 
-  label {
+label {
     font-family: sans-serif;
-  }
+}
 
-  .form-name {
+.form-name {
     background-color: grey;
     color: white;
     text-align: center;
     font-size: 150%;
     padding: 10px;
-  }
+}
 
 
-  body {
+body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     background-color: #4D4365;
     margin: 0;
-  }
-  
-  a {
+}
+
+a {
     color: #00B7FF;
-  }
-  
-  .flex-row {
+}
+
+.flex-row {
     display: flex;
     flex-direction: row;
-  }
-  
-  .flex-col {
+}
+
+.flex-col {
     display: flex;
     flex-direction: column;
-  }
-  
-  .lobby-container {
+}
+
+.lobby-container {
     display: flex;
     margin: 10px 20px;
-  }
-  
-  .container {
+}
+
+.container {
     margin: 20px;
     min-width: max-content;
     width: auto;
@@ -126,23 +158,23 @@ button {
     border-radius: 5px;
     background-color: #E5E5E8;
     color: #505c60;
-  }
-  
-  .chat-box {
+}
+
+.chat-box {
     flex: 2;
     position: relative;
-  }
-  
-  .chat-box-content {
+}
+
+.chat-box-content {
     padding: 15px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     height: 330px;
     overflow-y: scroll;
-  }
-  
-  .chat-item {
+}
+
+.chat-item {
     border-radius: 10px;
     border: 1px solid black;
     background-color: #CFD8DC;
@@ -152,60 +184,60 @@ button {
     display: flex;
     flex-direction: row;
     font-size: 18px;
-  }
-  
-  .chat-item > img {
+}
+
+.chat-item > img {
     height: 40px;
     width: 40px;
     padding: 7px;
-  
-  }
-  
-  .chat-input {
+
+}
+
+.chat-input {
     position: absolute;
     bottom: 5px;
     width: 100%;
-  }
-  
-  .chat-textbox{
+}
+
+.chat-textbox{
     border: none;
     font-size: 20px;
     padding: 18px;
     color: #6d7375;
     width: 100%;
     flex-grow: 5;
-  }
-  
-  .chat-action {
+}
+
+.chat-action {
     border: none;
     font-size: 20px;
     padding: 18px;
     color: #535758;
     width: 50px;
-  }
-  
-  .chat-action:hover {
+}
+
+.chat-action:hover {
     background-color: #CFD8DC;
-  }
-  
-  .game-list {
+}
+
+.game-list {
     flex: 1;
-  }
-  
-  .game-box-content {
+}
+
+.game-box-content {
     padding: 15px;
-  }
-  
-  .join-game > input[type=text] {
+}
+
+.join-game > input[type=text] {
     border: none;
     border-radius: 4px;
     padding: 10px;
     margin: 5px;
     width: auto;
     color:#9DA6A9;
-  }
-  
-  .join-game > input[type=submit] {
+}
+
+.join-game > input[type=submit] {
     border: none;
     padding: 10px;
     margin: 5px;
@@ -213,22 +245,51 @@ button {
     width: auto;
     color: #fff;
     border-radius: 3px;
-  }
-  .join-game > input[type=submit]:hover {
+}
+.join-game > input[type=submit]:hover {
     background: #9CA9AD;
-  }
-  
-  .form {
+}
+
+.online-games {
+    gap: 10px;
+    padding: 10px;
+    align-items: stretch;
+    list-style: none;
+}
+
+.game-list-item {
+    border: 1px solid black;
+    padding: 0;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: #CFD8DC;
+    height: auto;
+    width: inherit;
+    display: inline-block;
+}
+
+.game-list-item:hover {
+    background-color: #98c0d2;
+}
+
+.game-list-item a {
+    text-decoration: none;
+    display: block;
+    padding: 20px;
+    color: #505c60;
+}
+
+.form {
     max-width: 400px;
     color: #7B8D93;
     font-size: 22px;
     text-align: center;
     margin:100px auto;
     border-radius: 8px;
-  
-  }
-  
-  .box-header {
+
+}
+
+.box-header {
     background-color: #788B91;
     height: 100px;
     max-width: 100%;
@@ -236,19 +297,19 @@ button {
     color: white;
     text-align: center;
     border-radius: 5px 5px 0 0;
-  }
-  
-  .form-content {
+}
+
+.form-content {
     padding: 20px 10px 30px 10px;
     background-color: #CFD8DC;
-  }
-  
-  .form-input ::placeholder {
+}
+
+.form-input ::placeholder {
     color:#9DA6A9;
     padding: 5px;
-  }
-  
-  .form-input input {
+}
+
+.form-input input {
     border: none;
     border-radius: 4px;
     font-size: 20px;
@@ -256,9 +317,9 @@ button {
     width: 85%;
     color:#9DA6A9;
     margin-bottom: 12px;
-  }
-  
-  .form-actions input {
+}
+
+.form-actions input {
     border: none;
     padding: 10px 15px;
     margin: 20px 10px 10px 10px;
@@ -268,97 +329,97 @@ button {
     color: #fff;
     font-size: 20px;
     border-radius: 3px;
-  }
-  
-  .form-actions input:hover {
+}
+
+.form-actions input:hover {
     background: #9CA9AD;
-  }
-  
-  .form-upload {
-  /*  upload button style*/
-  }
-  
-  
-  
-  
-  
-  .header {
+}
+
+.form-upload {
+    /*  upload button style*/
+}
+
+
+
+
+
+.header {
     background-color: #788B91;
     background-image: linear-gradient(to right, #9DA6A9 , #788B91);
     display: flex;
     height: 150px;
     margin: 0;
     width: auto;
-  }
-  
-  .logo {
+}
+
+.logo {
     order: 1;
     width: 200px;
     height: 150px;
     border: black 2px;
-  }
-  
-  .logo > img {
+}
+
+.logo > img {
     object-fit: contain;
-  }
-  
-  .title {
+}
+
+.title {
     order: 2;
     flex-grow: 3;
     color: white;
     font-size: 50px;
     padding-left: 20px;
-  }
-  
-  .user-icon {
+}
+
+.user-icon {
     order: 3;
     width: 130px;
     height: 130px;
     padding:5px;
-  }
-  .user-icon > img {
+}
+.user-icon > img {
     object-fit: contain;
-  }
-  
-  .profile-container {
+}
+
+.profile-container {
     margin: 50px;
     display: flex;
     gap: 20px;
     color: #7B8D93;
-  }
-  
-  .profile-container > div {
+}
+
+.profile-container > div {
     border-radius: 5px;
     padding: 10px;
     background-color: #CFD8DC;
-  }
-  
-  .profile-photo, .profile-photo > img{
+}
+
+.profile-photo, .profile-photo > img{
     order: 1;
     width: 250px;
     height: 250px;
     object-fit: contain;
-  }
-  
-  .profile-info {
+}
+
+.profile-info {
     order: 2;
     height: 250px;
     flex: 5 3;
     background-color: cornflowerblue;
     min-width: 450px;
-  }
-  
-  .profile-info > h1 {
+}
+
+.profile-info > h1 {
     font-size: 40px;
     padding-left: 10px;
-  }
-  
-  .profile-info > p {
+}
+
+.profile-info > p {
     font-size: 20px;
     padding-left: 20px;
-  }
-  
-  .profile-ratio {
+}
+
+.profile-ratio {
     order: 3;
     width: 250px;
     min-width: 250px;
@@ -367,9 +428,9 @@ button {
     text-align: center;
     font-size: 30px;
     padding: 10px;
-  }
-  
-  .profile-game-history {
+}
+
+.profile-game-history {
     width: auto;
     min-width: 1035px;
     height: auto;
@@ -377,15 +438,15 @@ button {
     margin: 50px;
     padding: 20px;
     border-radius: 5px;
-  }
-  
-  .profile-game-history > ul {
+}
+
+.profile-game-history > ul {
     display: flex;
     width: 97%;
     flex-direction: column;
-  }
-  
-  .game-item {
+}
+
+.game-item {
     border: 1px solid white;
     list-style: none;
     display: flex;
@@ -393,46 +454,46 @@ button {
     padding: 10px;
     width:inherit;
     font-size: 20px;
-  }
-  
-  .game-item > li {
+}
+
+.game-item > li {
     padding: 10px;
-  }
-  
-  .circle {
+}
+
+.circle {
     height: 50px;
     width: 50px;
     border-radius: 50%;
     background-color: white;
     margin: 0;
-  }
-  
-  .circle > p {
+}
+
+.circle > p {
     text-align: center;
     padding: 2px;
     font-size: 40px;
     margin: 0;
-  }
-  
-  
-  #menu__toggle {
+}
+
+
+#menu__toggle {
     opacity: 0;
-  }
-  #menu__toggle:checked + .menu__btn > span {
+}
+#menu__toggle:checked + .menu__btn > span {
     transform: rotate(45deg);
-  }
-  #menu__toggle:checked + .menu__btn > span::before {
+}
+#menu__toggle:checked + .menu__btn > span::before {
     top: 0;
     transform: rotate(0deg);
-  }
-  #menu__toggle:checked + .menu__btn > span::after {
+}
+#menu__toggle:checked + .menu__btn > span::after {
     top: 0;
     transform: rotate(90deg);
-  }
-  #menu__toggle:checked ~ .menu__box {
+}
+#menu__toggle:checked ~ .menu__box {
     right: 0 !important;
-  }
-  .menu__btn {
+}
+.menu__btn {
     position: absolute;
     top: 75px;
     right: 40px;
@@ -440,28 +501,28 @@ button {
     height: 50px;
     padding: 2px;
     cursor: pointer;
-    z-index: 1;
-  }
-  .menu__btn > span,
-  .menu__btn > span::before,
-  .menu__btn > span::after {
+    z-index: 101;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
     display: block;
     position: absolute;
     width: 100%;
     height: 3px;
-  
+
     background-color: #616161;
     transition-duration: .25s;
-  }
-  .menu__btn > span::before {
+}
+.menu__btn > span::before {
     content: '';
     top: -8px;
-  }
-  .menu__btn > span::after {
+}
+.menu__btn > span::after {
     content: '';
     top: 8px;
-  }
-  .menu__box {
+}
+.menu__box {
     display: block;
     position: fixed;
     top: 0;
@@ -474,8 +535,9 @@ button {
     background-color: #ECEFF1;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
     transition-duration: .25s;
-  }
-  .menu__item {
+    z-index: 100;
+}
+.menu__item {
     display: block;
     padding: 12px 24px;
     color: #333;
@@ -484,15 +546,16 @@ button {
     font-weight: 600;
     text-decoration: none;
     transition-duration: .25s;
-  }
-  .menu__item:hover {
+}
+.menu__item:hover {
     background-color: #CFD8DC;
-  }
-  
-  .hamburger {
+}
+
+.hamburger {
     order: 4;
     flex: 0.6;
-  }
+    z-index: 101;
+}
 
 
   

@@ -4,11 +4,17 @@
     width: 130px;
     height: 180px;
     border-radius: 10px;
+    /*transform: rotate(3deg);*/
 }
 
-.unoCard:hover{
-    border: white solid 5px;
+.rotate90 {
+    transform: rotate(90deg);
 }
+
+.rotate270 {
+    transform: rotate(270deg);
+}
+
 
 .red {
     background-position-y: -33px;
