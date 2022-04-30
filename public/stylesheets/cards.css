@@ -26,6 +26,14 @@
     background-position-y: -620px;
 }
 
+.card-back {
+    background-position: -1869px -620px;
+}
+
+.wild {
+    background-position: -1869px -33px;
+}
+
 .reverse {
     background-position-x: -189px;
 }
@@ -80,8 +88,4 @@
 
 .card9 {
     background-position-x: -1729px;
-}
-
-.card-back {
-    background-position: -1869px -33px;
 }
