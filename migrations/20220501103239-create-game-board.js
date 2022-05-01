@@ -1,23 +1,13 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Cards', {
-      cardID: {
+    await queryInterface.createTable('gameBoards', {
+      gameID: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      cardColor: {
-        type: Sequelize.ENUM
-      },
-      cardValue: {
-        type: Sequelize.INTEGER
-      },
-      cardAction: {
-        type: Sequelize.STRING
-      },
-
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -29,6 +19,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Cards');
+    await queryInterface.dropTable('gameBoards');
   }
 };
