@@ -13,7 +13,7 @@ module.exports = {
         createdAt: {
           type: Sequelize.DATE,
           defaultValue: Sequelize.literal('NOW()'),
-          allowNull: false
+          allowNull: True
         },
         testString: {
           type: Sequelize.STRING,
