@@ -36,7 +36,7 @@ module.exports = {
         type: Sequelize.BOOLEAN,
       },
       played:{
-        type: Sequelize.BOOLEAN;
+        type: Sequelize.BOOLEAN,
       },
       createdAt: {
         allowNull: false,
