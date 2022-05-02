@@ -21,11 +21,10 @@
     "morgan": "~1.9.1",
     "pg-promise": "^10.11.1",
     "pug": "^3.0.2",
-    "sequelize": "^6.18.0",
-    "nodemon": "^2.0.15"
+    "sequelize": "^6.18.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.16",
     "sequelize-cli": "^6.4.1"
   }
 }
