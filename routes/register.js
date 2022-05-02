@@ -1,38 +1,36 @@
 var express = require('express');
 var router = express.Router();
-var bcrypt = require('bcrypt');
-
-const saltRounds = 10;
-const plainPassword = "TheVoodoo"
-
+const userdb = require('./../models/user');
 /* GET login page. */
 router.get('/', function(req, res, next) {
     res.render('register', { title: 'Register' });
 });
 
 const bodyParser = require('body-parser');
-const { func } = require('../db');
+const { response } = require('../app');
 router.use(bodyParser.urlencoded({ extended: true }));
 
 router.post('/', function(req, res, next){
-    var email = req.body.email;
+    var emails = req.body.email;
     var username = req.body.username;
-    var password = req.body.password;
-    console.log(email, username, password);
-    
-    // Testing bcrypt below:
+    var passwords = req.body.password;
+   // console.log(emails, username, passwords);
+    //res.send('account info has been received');
 
-    bcrypt.genSalt(saltRounds, function(err, salt) { // using function
-        bcrypt.hash(plainPassword, salt, function(err, hash) {
-            console.log("Testing hash: ", hash)
-        })
-    })
+    //inserting user registration info into user database
+    userdb.create({ //getting TypeError: userdb.create is not a function
+        //userID: 123456,
+        firstName: username,
+        lastName: "lastname",
+        email: emails,
+        password: passwords,
+        createdAt: new Date()
+    }).then((userdb) => {
+        res.json(userdb);
+    }, (errors) =>{
+        res.json(errors);
+    });
 
-    console.log()
 
-
-    // res.send('account info has been received');
-    res.redirect('/lobby')
 })
-
-module.exports = router;
+module.exports = router, userdb;
