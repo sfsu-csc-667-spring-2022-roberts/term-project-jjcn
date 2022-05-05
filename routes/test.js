@@ -6,9 +6,17 @@ const db = require('../db/index');
 
 
 router.get("/", (request, response) => {
-   db.query(`INSERT INTO test_table ("testString") VALUES ('Nusan second try at ${Date.now()}')`)
-    // db.query(`INSERT INTO "Users" ("firstName", "lastName", "email", "createdAt", "updatedAt") 
-	// VALUES ( 'Nusan', 'Adhikari','nusan14@gmail.com',${Date.now()},${Date.now()}) `)
+    testVar = 'its working!!';
+    var username = 'Test P';//req.body.username;
+    var lastN = 'last name';
+    var emails = 'testPage@gmail.com';//req.body.email'';
+    //var passwords = req.body.password;
+
+   //db.query(`INSERT INTO test_table ("testString") VALUES ($1) RETURNING *`,[testVar])
+    // db.query(`INSERT INTO "Users" ("firstName", "lastName", "email") 
+	// VALUES ( 'Nusan', 'Adhikari','nusan14@gmail.com') `)
+    db.query(`INSERT INTO "Users" ("firstName","lastName","email") 
+	VALUES ( $1,$2,$3) returning *`, [username, lastN, emails])
         .then(_ => db.any(`SELECT * FROM test_table`))
         .then(results => response.json(results))
         .catch(error => {
