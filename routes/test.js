@@ -6,9 +6,9 @@ const db = require('../db/index');
 
 
 router.get("/", (request, response) => {
-   // db.query(`INSERT INTO test_table ("testString") VALUES ('Hello at ${Date.now()}')`)
-   db.query(`INSERT INTO Users (firstName, lastName, email, createdAt, updatedAt) 
-	VALUES ( 'Nusan', 'Adhikari','nusan14@gmail.com',${Date.now()},${Date.now()}) `)
+   db.query(`INSERT INTO test_table ("testString") VALUES ('Nusan second try at ${Date.now()}')`)
+    // db.query(`INSERT INTO "Users" ("firstName", "lastName", "email", "createdAt", "updatedAt") 
+	// VALUES ( 'Nusan', 'Adhikari','nusan14@gmail.com',${Date.now()},${Date.now()}) `)
         .then(_ => db.any(`SELECT * FROM test_table`))
         .then(results => response.json(results))
         .catch(error => {
