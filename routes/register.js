@@ -28,4 +28,4 @@ router.post("/", async function (req, res, next) {
   ).then,
     res.send("account info has been received: " + username);
 });
-(module.exports = router), userdb;
+(module.exports = router);
