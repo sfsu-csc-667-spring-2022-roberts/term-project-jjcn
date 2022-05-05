@@ -12,6 +12,7 @@
     "postinstall": "npx sequelize db:migrate"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.0.0",
@@ -23,7 +24,7 @@
     "sequelize": "^6.18.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.16",
     "sequelize-cli": "^6.4.1"
   }
 }
