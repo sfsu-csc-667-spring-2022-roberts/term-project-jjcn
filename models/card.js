@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Card.init({
     cardColor: DataTypes.STRING,
-    cardNum: DataTypes.INTEGER,
+    cardValue: DataTypes.INTEGER,
     cardAction: DataTypes.STRING
   }, {
     sequelize,
