@@ -8,7 +8,6 @@ var bcrypt = require("bcrypt");
 const saltRounds = 10; //salt for hashing
 
 //const { Sequelize } = require('../models');
-//const sequelize = new Sequelize('postgres://skguvcdbcvhjyk:b2559196d59c670bcea4a8f9b74585bf4d7c1f6c18ba1e19f41ee0e7a1cf07ac@ec2-52-73-155-171.compute-1.amazonaws.com:5432/dac4pp1tnr8kp2');
 
 /* GET login page. */
 router.get("/", function (req, res, next) {
