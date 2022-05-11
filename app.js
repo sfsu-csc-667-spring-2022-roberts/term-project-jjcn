@@ -19,7 +19,7 @@ var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var userprofileRouter = require('./routes/userprofile');
 var lobbyRouter = require('./routes/lobby');
-var gameRouter = require('./routes/unoboard');
+var gameRouter = require('./routes/game');
 
 var app = express();
 
@@ -43,6 +43,7 @@ app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/userprofile', userprofileRouter);
 app.use('/lobby', lobbyRouter);
+app.use('/game', gameRouter);
 
 
 // app.use('/register', registerRouter);
