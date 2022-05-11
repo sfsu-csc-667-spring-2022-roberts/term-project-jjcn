@@ -557,5 +557,61 @@ a {
     z-index: 101;
 }
 
+  .unoCardTest {
+    display: inline-block;
+    background: #000 url("/images/spritesheet_uno.png") no-repeat;
+    width: 130px;
+    height: 180px;
+    background-position: -49px -33px;
+    border-radius: 10px;
+  }
+  .unoCardTest2 {
+    display: inline-block;
+    background: #000 url("/images/spritesheet_uno.png") no-repeat;
+    width: 130px;
+    height: 180px;
+    background-position: -189px -33px;
+    border-radius: 10px;
+  }
+  .unoCardTest3 {
+    display: inline-block;
+    background: #000 url("/images/spritesheet_uno.png") no-repeat;
+    width: 130px;
+    height: 180px;
+    background-position: -329px -33px;
+    border-radius: 10px;
+  }.unoCardTest4{
+    display: inline-block;
+    background: #000 url("/images/spritesheet_uno.png") no-repeat;
+    width: 130px;
+    height: 180px;
+    background-position: -469px -33px;
+    border-radius: 10px;
+  }
+  .unoCardTest5 {
+    display: inline-block;
+    background: #000 url("/images/spritesheet_uno.png") no-repeat;
+    width: 130px;
+    height: 180px;
+    background-position: -609px -33px;
+    border-radius: 10px;
+  }
+  .unoCardTest6 {
+    display: inline-block;
+    background: #000 url("/images/spritesheet_uno.png") no-repeat;
+    width: 130px;
+    height: 180px;
+    background-position: -749px -33px;
+    border-radius: 10px;
+  }
+   .unoCardTest7 {
+    display: inline-block;
+    background: #000 url("/images/spritesheet_uno.png") no-repeat;
+    width: 130px;
+    height: 180px;
+    background-position: -889px -228px;
+    border-radius: 10px;
+  } 
+
 
   

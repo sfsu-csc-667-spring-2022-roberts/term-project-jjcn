@@ -36,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/test', testRouter)
+app.use('/unoboard', gameRouter);
 
 // From chi-frontend
 app.use('/login', loginRouter);

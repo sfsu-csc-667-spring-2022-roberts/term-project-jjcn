@@ -4,7 +4,11 @@ import './cards.js';
 //define all of the decks
 let drawDeck = allCards;    //The deck players can draw from
 let gamePile = {};          //The deck that players put their cards into
-let playerDecks = {};       //An array of player decks
+let playerDecks = {};       //An array of player objects with decks. Example below
+
+// let playerDecks = {
+//     {id: 1, arr: {}}
+// };       
 
 
 //Deck Functions
