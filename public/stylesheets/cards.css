@@ -7,14 +7,36 @@
     /*transform: rotate(3deg);*/
 }
 
-.rotate90 {
-    transform: rotate(90deg);
-}
+/*.rotate90 {*/
+/*    transform: rotate(90deg);*/
+/*}*/
 
-.rotate270 {
+/*.rotate270 {*/
+/*    transform: rotate(270deg);*/
+/*}*/
+
+.playerTwo > .unoCard {
     transform: rotate(270deg);
 }
 
+.playerFour > .unoCard {
+    transform: rotate(90deg);
+}
+
+.playerOne > .unoCard:hover {
+    transform: translate(0, -20px);
+    border: 5px solid whitesmoke;
+    cursor: pointer;
+}
+
+.pullDeck {
+    border: 5px solid rgb(191, 170, 231);
+}
+
+.pullDeck:hover {
+    border: 5px solid whitesmoke;
+    cursor: pointer;
+}
 
 .red {
     background-position-y: -33px;

@@ -63,17 +63,21 @@ body {
 .pile {
     grid-area: pile;
     display: flex;
-    align-content: space-between;
+    align-content: space-around;
     padding: 20px;
     gap: 30px;
     margin: auto;
+    width: 350px;
+    height: 250px;
+    align-items: center;
 }
 
-.deck {
+.pullDeck {
     display: inline;
     background-color: red;
+    margin-right: 5px;
 }
-.played {
+.throwDeck {
     background-color: pink;
 }
 
