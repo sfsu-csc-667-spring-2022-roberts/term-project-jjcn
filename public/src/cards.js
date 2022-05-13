@@ -265,4 +265,4 @@ const g9 = {
     image: 'card num-9 green'
 }
 
-export default allCards;
+// export default allCards;

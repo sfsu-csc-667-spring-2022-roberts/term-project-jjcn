@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var gameManager = require('../public/src/gameManager.js');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

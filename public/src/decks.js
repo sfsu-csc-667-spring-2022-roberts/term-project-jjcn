@@ -1,10 +1,10 @@
-import './cards.js';
+const cards = require('./cards.js');
 
 
 //define all of the decks
-export let drawDeck = allCards;    //The deck players can draw from
-export let gamePile = {};          //The deck that players put their cards into
-export let playerDecks = {};       //An array of player objects with decks. Example below
+let drawDeck = cards.allCards;    //The deck players can draw from
+let gamePile = {};          //The deck that players put their cards into
+let playerDecks = {};       //An array of player objects with decks. Example below
 
 // let playerDecks = {
 //     {id: 1, arr: {}}
@@ -14,11 +14,11 @@ export let playerDecks = {};       //An array of player objects with decks. Exam
 //Deck Functions
 
 //shuffles the deck to a random instance
-export function shuffle(array) {
+function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
 }
 
-export function move(deck1, deck2, card) {
+function move(deck1, deck2, card) {
     //find the cardIndex in deck1
     let cardIndex = deck1.findIndex( (element) => {
         element.id === card.id;
