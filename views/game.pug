@@ -2,14 +2,18 @@ extends layout
 
 block content
     div.grid-container
+        //- script(src)
+        - const testCards = ["unoCard red card0", "unoCard blue card5", "unoCard green card7", "unoCard green card3"]
         div.playerOne.playerDeck
-            div.unoCard.blue.reverse
-            div.unoCard.blue.card0
-            div.unoCard.blue.skip
-            div.unoCard.blue.card0
-            div.unoCard.blue.card1
-            div.unoCard.blue.card2
-            div.unoCard.blue.card3
+            each card in cards
+                div(class=`${card}`)
+            //- div.unoCard.blue.reverse
+            //- div.unoCard.blue.card0
+            //- div.unoCard.blue.skip
+            //- div.unoCard.blue.card0
+            //- div.unoCard.blue.card1
+            //- div.unoCard.blue.card2
+            //- div.unoCard.blue.card3
         div.playerTwo.playerDeck
             div.unoCard.rotate270.card-back
             div.unoCard.rotate270.card-back
