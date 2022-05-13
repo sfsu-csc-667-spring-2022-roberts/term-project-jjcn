@@ -1,13 +1,4 @@
-const allCards = {
-    r1, r2, r3, r4, r5, r6, r7, r8, r9,
-    b1, b2, b3, b4, b5, b6, b7, b8, b9,
-    y1, y2, y3, y4, y5, y6, y7, y8, y9,
-    g1, g2, g3, g4, g5, g6, g7, g8, g9,
-    r_rev, b_rev, y_rev, g_rev,
-    r_draw2, b_draw2, y_draw2, g_draw2,
-    r_skip, b_skip, y_skip, g_skip,
-    draw4, wild
-}
+
 
 //Red card declarations
 
@@ -369,4 +360,17 @@ const wild = {
     image: 'unoCard wild'
 }
 
-// export default allCards;
+const allCards = {
+    r1: r1,
+//     r2, r3, r4, r5, r6, r7, r8, r9,
+//     b1, b2, b3, b4, b5, b6, b7, b8, b9,
+//     y1, y2, y3, y4, y5, y6, y7, y8, y9,
+//     g1, g2, g3, g4, g5, g6, g7, g8, g9,
+//     r_rev, b_rev, y_rev, g_rev,
+//     r_draw2, b_draw2, y_draw2, g_draw2,
+//     r_skip, b_skip, y_skip, g_skip,
+//     draw4, wild
+}
+
+export {allCards};
+// module.exports = {allCards};
