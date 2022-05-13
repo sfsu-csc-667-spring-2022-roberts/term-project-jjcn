@@ -21,4 +21,12 @@ const gameManager = (numPlayers) => {
             });
         }
     }
+
+    //start game
+        //game loop
 }
+
+//checkTurn
+
+//Checkplayable cards
+
