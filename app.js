@@ -19,6 +19,7 @@ var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var userprofileRouter = require('./routes/userprofile');
 var lobbyRouter = require('./routes/lobby');
+var gameRouter = require('./routes/game');
 
 var app = express();
 
@@ -35,12 +36,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/test', testRouter)
+app.use('/unoboard', gameRouter);
 
 // From chi-frontend
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/userprofile', userprofileRouter);
 app.use('/lobby', lobbyRouter);
+app.use('/game', gameRouter);
 
 
 // app.use('/register', registerRouter);
