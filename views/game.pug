@@ -3,29 +3,16 @@ extends layout
 block content
     div.grid-container
         div.playerOne.playerDeck
-            div.unoCard.blue.reverse
-            div.unoCard.blue.card0
-            div.unoCard.blue.skip
-            div.unoCard.blue.card0
-            div.unoCard.blue.card1
-            div.unoCard.blue.card2
-            div.unoCard.blue.card3
+            - let testdeck = ['unoCard red card1', 'unoCard yellow card5','unoCard blue card3', 'unoCard red reverse', 'unoCard yellow skip', 'unoCard blue draw2', 'unoCard green wild'];
+            each card in testdeck
+                 div(class = card)
         div.playerTwo.playerDeck
-            div.unoCard.rotate270.card-back
-            div.unoCard.rotate270.card-back
-            div.unoCard.rotate270.card-back
-            div.unoCard.rotate270.card-back
-            div.unoCard.rotate270.card-back
-            div.unoCard.rotate270.card-back
-            div.unoCard.rotate270.card-back
+
         div.playerThree.playerDeck
-            div.unoCard.card-back
-            div.unoCard.card-back
-            div.unoCard.card-back
-            div.unoCard.card-back
-            div.unoCard.card-back
-            div.unoCard.card-back
-            div.unoCard.card-back
+             -
+             each card in deck
+                 div(class = card)
+
         div.playerFour.playerDeck
             div.unoCard.card-back.rotate90
             div.unoCard.card-back.rotate90
@@ -35,6 +22,6 @@ block content
             div.unoCard.card-back.rotate90
             div.unoCard.card-back.rotate90
         div.pile
-            div.deck.unoCard.card-back Deck
-            div.played.unoCard.green.card3 Played
+            div.throwDeck.unoCard.green.card3 ThrowDeck
+            div.pullDeck.unoCard.card-back PullDeck
         div.chat Chat
