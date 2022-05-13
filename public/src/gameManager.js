@@ -4,13 +4,7 @@ const decks = require('./decks.js');
 
 const gameManager = (numPlayers) => {
     //Init Game
-        //Shuffle deck
-        console.log(decks.drawDeck);
-        decks.shuffle(decks.drawDeck);
-        console.log(decks.drawDeck);
-        //create player objects
-        //pass out cards
-        //pick out random card to start
+    initGame(numPlayers);
 
     decks.shuffle(decks.drawDeck);
 
@@ -33,6 +27,16 @@ const gameManager = (numPlayers) => {
 
     //start game
         //game loop
+}
+
+const initGame = (numPlayers) => {
+    //Shuffle deck
+    console.log(decks.drawDeck);
+    decks.shuffle(decks.drawDeck);
+    console.log(decks.drawDeck);
+    //create player objects
+    //pass out cards
+    //pick out random card to start
 }
 
 //checkTurn
