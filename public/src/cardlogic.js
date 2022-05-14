@@ -13,6 +13,8 @@ function renderCard(card, deck) {
 function drawCard (playerDeck) {
     const topCard = drawDeck_arr.pop();
     renderCard(topCard, player1Deck_div);
+    // TODO: push card to player deck
+
 }
 
 // remove card from player deck and display in throw deck
@@ -22,8 +24,17 @@ function playCard(card) {
     var card_divs = [...currentCards].filter(element => element.className == card.image);
 //     console.log("here", card_divs[0]);
     card_divs[0].remove();
+    // TODO: remove card from player deck
+
     var throwDeck = document.getElementsByClassName("throwDeck")[0];
     throwDeck.className = "throwDeck " + card.image;
+    throwDeck_card = card;
+    console.log(throwDeck_card);
+    // TODO: add card to throw deck
+}
+
+function isPlayable(card ){
+    return true;
 }
 
 // debug
@@ -34,9 +45,11 @@ var drawDeck_div = document.getElementsByClassName("pullDeck")[0];
 var player1Deck_div = document.getElementsByClassName("playerOne playerDeck")[0];
 var player1Deck_arr = [allCards.r1, allCards.b7, allCards.g_rev, allCards.y_skip];
 
+var throwDeck = document.getElementsByClassName("throwDeck")[0];
+var throwDeck_card;
+
 drawDeck_div.onclick = function() { drawCard(player1Deck_arr) };
 
 player1Deck_arr.forEach(element => renderCard(element, player1Deck_div));
-
 
 
