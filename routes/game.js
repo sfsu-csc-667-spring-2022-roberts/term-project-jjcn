@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
     'unoCard yellow skip',
     'unoCard blue draw2',
     'unoCard green wild'];
-    console.log(deck);
+    // console.log(deck);
     res.render('game', { title: 'Game Board' , deck: deck});
 });
 
