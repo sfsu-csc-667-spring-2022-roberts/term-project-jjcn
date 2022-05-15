@@ -43,7 +43,7 @@ body {
     grid-area: right-deck;
     /*background-color: rgb(136, 187, 136);*/
     grid-template-rows: repeat(auto-fit,  minmax(10px, max-content)) ;
-
+    box-shadow: 0 0 50px 15px whitesmoke;
 }
 
 .playerThree {
