@@ -1,6 +1,7 @@
 import {shuffle, move, displayDeck, displayGamePile, drawDeck, gamePile} from './decks.js';
 
 let players = [];
+let winner = -1;
 
 const gameManager = (numPlayers) => {
     //Init Game
@@ -10,6 +11,7 @@ const gameManager = (numPlayers) => {
         //game loop
 }
 
+//Sets up the game
 const initGame = (numPlayers) => {
     console.log('initGame is printing!');
 
@@ -38,6 +40,31 @@ const initGame = (numPlayers) => {
     console.log(gamePile[gamePile.length - 1]);
     displayGamePile(gamePile[gamePile.length - 1]);
 }
+
+const startGame = () => {
+    let playerTurn = 0;
+
+    while(!checkWinner()) {
+        //check to see if cards are valid
+            //No -> draw card
+            //Yes -> play card
+
+        playerTurn = playerTurn++ % players.length;
+    }
+}
+
+//Cycles through every player and checks their decks. If one is empty, then there's a winner
+const checkWinner = () => {
+    players.forEach((player) => {
+        if(player.deck.length === 0) {
+            winner = player.id;
+            return true;
+        }
+    });
+
+    return false;
+}
+
 
 //checkTurn
 

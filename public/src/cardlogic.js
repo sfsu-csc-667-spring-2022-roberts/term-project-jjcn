@@ -69,4 +69,3 @@ drawDeck_div.onclick = function() { drawCard(player1Deck_arr) };
 player1Deck_arr.forEach(element => renderCard(element, player1Deck_div));
 console.log("deck playable ", isDeckPlayable(player1Deck_arr));
 
-
