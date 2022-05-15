@@ -13,28 +13,44 @@ function renderCard(card, deck) {
 function drawCard (playerDeck) {
     const topCard = drawDeck_arr.pop();
     renderCard(topCard, player1Deck_div);
-    // TODO: push card to player deck
+    player1Deck_arr.push(topCard);
 
+    console.log("deck playable ", isDeckPlayable(player1Deck_arr));
 }
 
 // remove card from player deck and display in throw deck
 function playCard(card) {
     var currentCards = player1Deck_div.childNodes;
-//     console.log(typeof currentCards, currentCards, currentCards[0].className, card, card.image);
     var card_divs = [...currentCards].filter(element => element.className == card.image);
 //     console.log("here", card_divs[0]);
-    card_divs[0].remove();
-    // TODO: remove card from player deck
+    if (isCardPlayable(card)){
+        throwDeck.className = "throwDeck " + card.image;
+        throwDeck_card = card;
 
-    var throwDeck = document.getElementsByClassName("throwDeck")[0];
-    throwDeck.className = "throwDeck " + card.image;
-    throwDeck_card = card;
-    console.log(throwDeck_card);
-    // TODO: add card to throw deck
+        card_divs[0].remove();
+        const index = player1Deck_arr.indexOf(card);
+        player1Deck_arr.splice(index, 1);
+
+//         console.log(throwDeck_card);
+
+    } else {
+        console.log("card is not playable");
+    }
+    console.log("deck playable ", isDeckPlayable(player1Deck_arr));
 }
 
-function isPlayable(card ){
-    return true;
+function isCardPlayable(card ){
+//     console.log(card, throwDeck_card);
+    return (card.color == throwDeck_card.color || card.value == throwDeck_card.value) ? true : false ;
+}
+
+function isDeckPlayable(deck){
+    for (let i = 0; i < deck.length; i++) {
+        if (isCardPlayable(deck[i])){
+            return true;
+        }
+    }
+    return false;
 }
 
 // debug
@@ -43,13 +59,14 @@ var drawDeck_arr = Object.values(allCards);
 var drawDeck_div = document.getElementsByClassName("pullDeck")[0];
 
 var player1Deck_div = document.getElementsByClassName("playerOne playerDeck")[0];
-var player1Deck_arr = [allCards.r1, allCards.b7, allCards.g_rev, allCards.y_skip];
+let player1Deck_arr = [allCards.r1, allCards.b7, allCards.g5, allCards.r8, allCards.y3];
 
 var throwDeck = document.getElementsByClassName("throwDeck")[0];
-var throwDeck_card;
+var throwDeck_card = allCards.g3;
 
 drawDeck_div.onclick = function() { drawCard(player1Deck_arr) };
 
 player1Deck_arr.forEach(element => renderCard(element, player1Deck_div));
+console.log("deck playable ", isDeckPlayable(player1Deck_arr));
 
 
