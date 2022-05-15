@@ -20,8 +20,31 @@ var registerRouter = require('./routes/register');
 var userprofileRouter = require('./routes/userprofile');
 var lobbyRouter = require('./routes/lobby');
 var gameRouter = require('./routes/game');
+var chatRouter = require('./routes/chat');
 
 var app = express();
+
+const session = require("express-session");
+//session middleware
+app.use(
+  session({
+    secret: "secret-key",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+// app.get("/:pagename", (req, res) => {
+//   let pagename = req.params.pagename;
+//   if (pagename == "logout") {
+//     req.session.destroy(() => {
+//       console.log("User logged out");
+//     });
+//     res.redirect("/index");
+//   } else {
+//     res.render(req.params.pagename, {user: {}});
+//   }
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,6 +67,7 @@ app.use('/register', registerRouter);
 app.use('/userprofile', userprofileRouter);
 app.use('/lobby', lobbyRouter);
 app.use('/game', gameRouter);
+app.use('/chat', chatRouter);
 
 
 // app.use('/register', registerRouter);

@@ -3,7 +3,7 @@ extends layout
 block content
     div.profile-container
         div.profile-photo
-            img(src="#{user.photo}")
+            img(src=`${user.photo}`)
         div.profile-info
             h1= "@" + user.username
             p= user.bio

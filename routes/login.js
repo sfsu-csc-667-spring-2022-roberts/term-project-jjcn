@@ -17,10 +17,20 @@ router.post("/", async function (req, res, next) {
   var password = req.body.password;
 
   const userAccount = await db.query(
-    `SELECT password FROM "Users" WHERE email=$1 LIMIT 1;`,
+    `SELECT * FROM "Users" WHERE email=$1 LIMIT 1;`,
     [username.trim()]
   );
-  console.log("connected to db");
+  console.log("connected to db", userAccount.rows[0]);
+
+  var user = {
+          id: userAccount.rows[0].id,
+          username: userAccount.rows[0].firstName,
+          bio: userAccount.rows[0].email,
+          wins: 0,
+          loses: 0,
+          photo: "/images/userphoto.png",
+          history: [],
+      }
 
   let hashPassword = "";
   for (let row of userAccount.rows) {
@@ -31,7 +41,12 @@ router.post("/", async function (req, res, next) {
   bcrypt.compare(password, hashPassword).then(function (result) {
     result == true;
     if (result) {
-      res.redirect("/userprofile");
+//       console.log("rezz11", userAccount.rows[0].firstName, user.firstName, user.email);
+//       res.redirect("/userprofile");
+        req.session.isLoggedIn = true;
+        req.session.user = user;
+        console.log("in login my session:", req.session);
+        res.render("userprofile", {sessionUser: user, user: user});
     } else {
       res.send("invalid password or email");
     }
