@@ -6,10 +6,11 @@ block content
             div.box-header
                 h1 Global Chat
             div.chat-box-content
-                for message in chat
-                    div.chat-item
-                        img(src="#{message.photo}")
-                        p= message.user + ": " + message.message
+                //-
+                    for message in chat
+                        div.chat-item
+                            img(src="#{message.photo}")
+                            p= message.user + ": " + message.message
             div.chat-input
                 form.flex-row(method="post" action="#")
                     input.chat-textbox(type="text" placeholder="chat...")
@@ -26,8 +27,15 @@ block content
 
                 ul.flex-col.online-games
                     li.game-list-item
-                        a(href='/game') game 1
+                        a(href='/game') New Game
                     li.game-list-item
-                        a(href='/game') game 2
+                        a(href='/game') New Game
                     li.game-list-item
-                        a(href='/game') game 3
+                        a(href='/game') New Game
+
+    script.
+        var sessionUser = !{JSON.stringify(sessionUser)}
+
+    script(src='/socket.io/socket.io.js')
+    script(src='/src/lobbychat.js')
+

@@ -28,7 +28,7 @@ router.post("/", async function (req, res, next) {
 
     const hash = await bcrypt.hash(passwords, saltRounds); //hashing password
     await db.query(
-      `INSERT INTO "Users" ("firstName","lastName","email","password","createdAt") 
+      `INSERT INTO "Users" ("firstName","lastName","email","password","createdAt")
         VALUES ( $1,$2,$3,$4,$5) returning *`,
       [username, lastN, emails, hash, todayDate]
     ).then,
