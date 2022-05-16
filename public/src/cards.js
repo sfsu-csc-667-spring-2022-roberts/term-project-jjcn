@@ -1,4 +1,4 @@
-import {playCard} from "./cardlogic.js";
+
 
 //Red card declarations
 
@@ -360,6 +360,7 @@ const wild = {
     image: 'unoCard wild'
 }
 
+
 const cardArr = [
     r1, r2, r3, r4, r5, r6, r7, r8, r9,
     b1, b2, b3, b4, b5, b6, b7, b8, b9,
@@ -381,7 +382,6 @@ const allCards = {
 //     r_rev: r_rev,
 //     r_draw2: r_draw2,
 //     r_skip: r_skip,
-
 
     y1: y1,
     y2: y2,
@@ -433,14 +433,10 @@ const allCards = {
 const displayCard = (card) => {
     let cardDisplay = document.createElement("div");
     cardDisplay.className = card.image;
-    cardDisplay.onclick = function() {playCard(this.className)} ;
 
     return cardDisplay;
 }
 
-
-
 // export {allCards};
 export {allCards, cardArr, displayCard};
-
 
