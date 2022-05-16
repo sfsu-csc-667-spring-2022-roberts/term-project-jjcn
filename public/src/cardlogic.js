@@ -59,7 +59,7 @@ var drawDeck_arr = Object.values(allCards);
 var drawDeck_div = document.getElementsByClassName("pullDeck")[0];
 
 var player1Deck_div = document.getElementsByClassName("playerOne playerDeck")[0];
-let player1Deck_arr = [allCards.r1, allCards.b7, allCards.g5, allCards.r8, allCards.y3];
+let player1Deck_arr = [];
 
 var throwDeck = document.getElementsByClassName("throwDeck")[0];
 var throwDeck_card = allCards.g3;
