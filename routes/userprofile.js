@@ -54,23 +54,27 @@ router.get('/:uid', async function(req, res, next) {
         }],
     }
     var uid = req.params.uid;
-    const userAccount = await db.query(
-        `SELECT * FROM "Users" WHERE id=$1 LIMIT 1;`,
-        [uid]
-    );
+    try {
+        const userAccount = await db.query(
+            `SELECT * FROM "Users" WHERE id=$1 LIMIT 1;`,
+            [uid]
+        );
+        var user = {
+            id: userAccount.rows[0].id,
+            username: userAccount.rows[0].firstName,
+            bio: userAccount.rows[0].email,
+            wins: 0,
+            loses: 0,
+            photo: "/images/userphoto.png",
+            history: [],
+          }
+        console.log("in userprofile GET ", user);
+        res.render('userprofile', { title: "User Profile", user: user, sessionUser: (req.session.user) ? req.session.user : null});
 
-    var user = {
-        id: userAccount.rows[0].id,
-        username: userAccount.rows[0].firstName,
-        bio: userAccount.rows[0].email,
-        wins: 0,
-        loses: 0,
-        photo: "/images/userphoto.png",
-        history: [],
-      }
-
-    console.log("in userprofile get ", user);
-    res.render('userprofile', { title: "User Profile", user: user, sessionUser: (req.session.user) ? req.session.user : null});
+    } catch (err) {
+        console.log(err);
+        res.send("Error finding user in database\n");
+    }
 });
 
 module.exports = router;

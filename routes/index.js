@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Team JJCN Uno' });
+  res.render('lobby', { title: 'Lobby' , sessionUser: (req.session.user) ? req.session.user : null});
 });
 
 router.get('/register', function(req, res, next) {
