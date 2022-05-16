@@ -1,6 +1,6 @@
 import { cardArr } from './cards.js';
-import { drawDeck, addCardToDeck, gamePile, moveCard, removeCardFromDeck, displayGamePile } from './decks.js';
-import {getCurrentPlayer} from "./gameManager.js";
+import { drawDeck, addCardToDeck, gamePile, moveCard, removeCardFromDeck, displayGamePile, shuffle } from './decks.js';
+import {getCurrentPlayer, getNextPlayer} from "./gameManager.js";
 
 // renders the card on the document
 function renderCard(card, deck) {
@@ -12,28 +12,33 @@ function renderCard(card, deck) {
 }
 
 // pop the pullDeck and adds card to playerDeck
+//If drawDeck is empty, this function automatically reshuffles the deck
 function drawCard () {
-    console.log("drawCard just ran");
-    //turn this into drawDeck
-    const topCard = drawDeck.pop();
-    //renderCard(topCard, player1Deck_div);
-    addCardToDeck(getCurrentPlayer(), topCard);
-    //player1Deck_arr.push(topCard);
+    console.log("running drawCard");
+    if(drawDeck.length > 0) {
+        const topCard = drawDeck.pop();
+        addCardToDeck(getCurrentPlayer(), topCard);
+    } else {
+        console.log("Reshuffling");
 
-    //console.log("deck playable ", isDeckPlayable(player1Deck_arr));
+        while(gamePile.length > 1) {
+            moveCard(drawDeck, gamePile, gamePile[0]);
+        }
+        shuffle(drawDeck);
+
+        drawCard();
+    }
 }
 
 // remove card from player deck and display in throw deck
 function playCard(cardImg) {
     console.log("running playCard");
-    console.log(cardImg);
 
     var currPlayer = getCurrentPlayer();
 
     //get card from event object
     // let thisCard = cardArr.filter(card => card.image === cardImg);
     let card = currPlayer.deck.filter(thisCard => thisCard.image === cardImg)[0];
-    console.log(card);
 
     // var currentCards = getCurrentPlayer().childNodes;
     // var card_divs = [...currentCards].filter(element => element.className === card.image);
@@ -43,10 +48,10 @@ function playCard(cardImg) {
         // throwDeck_card = card;
 
         moveCard(gamePile, currPlayer.deck, card);
-        console.log('Throw deck: ' + gamePile);
-        console.log('CurrPlayer deck: ' + currPlayer.deck);
         removeCardFromDeck(currPlayer, card);
         displayGamePile(card);
+
+        getNextPlayer();
 
         // console.log("This card is on the throw pile"  + card);
 
@@ -63,7 +68,6 @@ function playCard(cardImg) {
 }
 
 function isCardPlayable(card){
-    console.log(card.color + " " + card.value);
     return (card.color === gamePile[gamePile.length - 1].color || card.value === gamePile[gamePile.length - 1].value) ? true : false ;
 }
 

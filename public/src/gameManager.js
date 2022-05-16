@@ -9,6 +9,7 @@ const gameManager = (numPlayers) => {
     initGame(numPlayers);
 
     //start game
+    // startGame();
         //game loop
 }
 
@@ -40,7 +41,6 @@ const initGame = (numPlayers) => {
         displayDeck(player, player.deck);
     });
 
-    console.log(gamePile);
     displayGamePile(gamePile[gamePile.length - 1]);
 }
 
@@ -53,14 +53,32 @@ const startGame = () => {
             //Yes -> play card
 
         playerTurn = playerTurn++ % players.length;
+        console.log("while loop is running");
     }
+    console.log("Someone won!!!");
 }
+
+const getNextPlayer = () => {
+    if(winner != -1) {
+        console.log("checkWinner: " + checkWinner());
+        alert("Player " + winner + " Wins!");
+    } else {
+        playerTurn++;
+        playerTurn %= players.length;
+        console.log("Current Player Turn: " + playerTurn);
+    }
+
+    checkWinner();
+};
 
 //Cycles through every player and checks their decks. If one is empty, then there's a winner
 const checkWinner = () => {
+    console.log("running checkWinner");
     players.forEach((player) => {
         if(player.deck.length === 0) {
+            console.log(player);
             winner = player.id;
+            alert("Player " + winner + " wins!");
             return true;
         }
     });
@@ -76,6 +94,6 @@ const getCurrentPlayer = () => {
 
 //Checkplayable cards
 
-initGame(4);
+gameManager(4);
 
-export {initGame, getCurrentPlayer};
+export {initGame, getCurrentPlayer, getNextPlayer};

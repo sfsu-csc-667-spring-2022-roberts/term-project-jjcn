@@ -32,15 +32,14 @@ function move(deck1, deck2, card) {
 
 //moves a card from one deck to another
 function moveCard(toArr, fromArr, card) {
+    console.log("running moveCard");
     //Find the location in the first deck
     let index = fromArr.indexOf(card);
 
     //remove from that array and remove from the rendering
     let cardToMove = fromArr.splice(index, 1)[0];
-    console.log("card that's moving: " + cardToMove.image);
 
     toArr.push(cardToMove);
-    console.log(toArr);
 }
 
 //This function dynamically displays the card decks on the game page
@@ -62,9 +61,7 @@ function addCardToDeck(player, card) {
     let playerDeck = document.getElementsByClassName(playerArea + " playerDeck");
 
     //add the card to the player's array
-    console.log(player.deck);
     player.deck.push(card);
-    console.log(player.deck);
 
     //append the card
     let cardDisplay = displayCard(card);
@@ -81,7 +78,6 @@ function removeCardFromDeck(player, card) {
     playerDeck.childNodes.forEach((child) => {
         if(child.className === card.image) {
             cardToRemove = child;
-            console.log(cardToRemove);
         }
     });
     // console.log(playerDeck.childNodes);
@@ -100,7 +96,6 @@ function displayGamePile(card) {
 
     //Display the card
     gamePile.className = cardArea + " " + card.image;
-    console.log(gamePile.className);
 }
 
 function classFinder(PID) {
