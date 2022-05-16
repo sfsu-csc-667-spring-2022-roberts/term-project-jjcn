@@ -360,6 +360,13 @@ const wild = {
     image: 'unoCard wild'
 }
 
+const cardArr = [
+    r1, r2, r3, r4, r5, r6, r7, r8, r9,
+    b1, b2, b3, b4, b5, b6, b7, b8, b9,
+    y1, y2, y3, y4, y5, y6, y7, y8, y9,
+    g1, g2, g3, g4, g5, g6, g7, g8, g9
+];
+
 const allCards = {
     r1: r1,
     r2: r2,
@@ -370,9 +377,11 @@ const allCards = {
     r7: r7,
     r8: r8,
     r9: r9,
-    r_rev: r_rev,
-    r_draw2: r_draw2,
-    r_skip: r_skip,
+
+//     r_rev: r_rev,
+//     r_draw2: r_draw2,
+//     r_skip: r_skip,
+
 
     y1: y1,
     y2: y2,
@@ -383,9 +392,10 @@ const allCards = {
     y7: y7,
     y8: y8,
     y9: y9,
-    y_rev: y_rev,
-    y_draw2: y_draw2,
-    y_skip: y_skip,
+
+//     y_rev: y_rev,
+//     y_draw2: y_draw2,
+//     y_skip: y_skip,
 
     g1: g1,
     g2: g2,
@@ -396,9 +406,10 @@ const allCards = {
     g7: g7,
     g8: g8,
     g9: g9,
-    g_rev: g_rev,
-    g_draw2: g_draw2,
-    g_skip: g_skip,
+
+//     g_rev: g_rev,
+//     g_draw2: g_draw2,
+//     g_skip: g_skip,
 
     b1: b1,
     b2: b2,
@@ -409,14 +420,24 @@ const allCards = {
     b7: b7,
     b8: b8,
     b9: b9,
-    b_rev: b_rev,
-    b_draw2: b_draw2,
-    b_skip: b_skip,
 
-    draw4: draw4,
-    wild: wild,
+//     b_rev: b_rev,
+//     b_draw2: b_draw2,
+//     b_skip: b_skip,
+//
+//     draw4: draw4,
+//     wild: wild,
 
 }
 
-export {allCards};
-// module.exports = {allCards};
+const displayCard = (card) => {
+    let cardDisplay = document.createElement("div");
+    cardDisplay.className = card.image;
+
+    return cardDisplay;
+}
+
+// export {allCards};
+export {allCards, cardArr, displayCard};
+
+
