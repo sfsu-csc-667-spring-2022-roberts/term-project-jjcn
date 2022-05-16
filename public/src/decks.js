@@ -1,6 +1,7 @@
 import {allCards, cardArr, displayCard} from './cards.js';
 
 
+
 //define all of the decks
 let drawDeck = cardArr;    //The deck players can draw from
 let gamePile = [];          //The deck that players put their cards into
@@ -29,6 +30,19 @@ function move(deck1, deck2, card) {
     deck2.push(cardArray[0]);
 }
 
+//moves a card from one deck to another
+function moveCard(toArr, fromArr, card) {
+    //Find the location in the first deck
+    let index = fromArr.indexOf(card);
+
+    //remove from that array and remove from the rendering
+    let cardToMove = fromArr.splice(index, 1)[0];
+    console.log("card that's moving: " + cardToMove.image);
+
+    toArr.push(cardToMove);
+    console.log(toArr);
+}
+
 //This function dynamically displays the card decks on the game page
 function displayDeck(player, cards) {
     //Find the Player area
@@ -40,6 +54,42 @@ function displayDeck(player, cards) {
         let cardDisplay = displayCard(card);
         playerDeck[0].appendChild(cardDisplay);
     });
+}
+
+//This function dynamically adds a single card to the specified player deck
+function addCardToDeck(player, card) {
+    let playerArea = classFinder(player.id);
+    let playerDeck = document.getElementsByClassName(playerArea + " playerDeck");
+
+    //add the card to the player's array
+    console.log(player.deck);
+    player.deck.push(card);
+    console.log(player.deck);
+
+    //append the card
+    let cardDisplay = displayCard(card);
+    playerDeck[0].appendChild(cardDisplay);
+}
+
+//Removes a single card from the player's deck
+function removeCardFromDeck(player, card) {
+    let playerArea = classFinder(player.id);
+    let playerDeck = document.getElementsByClassName(playerArea + " playerDeck")[0];
+
+    let cardToRemove;
+
+    playerDeck.childNodes.forEach((child) => {
+        if(child.className === card.image) {
+            cardToRemove = child;
+            console.log(cardToRemove);
+        }
+    });
+    // console.log(playerDeck.childNodes);
+    // let cardToRemove = playerDeck.childNodes.filter();
+
+    //let cardToRemove = playerDeck.childNodes.filter(cardDiv => cardDiv.className === card.image);
+
+    cardToRemove.remove();
 }
 
 //This function dynamically displays the currently played card
@@ -68,4 +118,9 @@ function classFinder(PID) {
     }
 }
 
-export {shuffle, move, displayDeck, displayGamePile, drawDeck, gamePile};
+//deck is the area to remove the card from (playerdeck, throwpile, etc)
+function removeCard(deck, card) {
+
+}
+
+export {shuffle, moveCard, displayDeck, removeCardFromDeck, displayGamePile, addCardToDeck, drawDeck, gamePile};

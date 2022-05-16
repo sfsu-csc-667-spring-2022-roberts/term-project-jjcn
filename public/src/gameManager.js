@@ -1,7 +1,8 @@
-import {shuffle, move, displayDeck, displayGamePile, drawDeck, gamePile} from './decks.js';
+import {shuffle, displayDeck, displayGamePile, drawDeck, gamePile} from './decks.js';
 
 let players = [];
 let winner = -1;
+let playerTurn = 0;
 
 const gameManager = (numPlayers) => {
     //Init Game
@@ -32,12 +33,14 @@ const initGame = (numPlayers) => {
 
     //pick out random card to start
     gamePile.push(drawDeck.pop());
+    
 
     //Display Cards
     players.forEach((player) => {
         displayDeck(player, player.deck);
     });
-    console.log(gamePile[gamePile.length - 1]);
+
+    console.log(gamePile);
     displayGamePile(gamePile[gamePile.length - 1]);
 }
 
@@ -65,6 +68,9 @@ const checkWinner = () => {
     return false;
 }
 
+const getCurrentPlayer = () => {
+    return players[playerTurn];
+}
 
 //checkTurn
 
@@ -72,4 +78,4 @@ const checkWinner = () => {
 
 initGame(4);
 
-export {initGame};
+export {initGame, getCurrentPlayer};

@@ -1,4 +1,4 @@
-
+import {playCard} from "./cardlogic.js";
 
 //Red card declarations
 
@@ -433,9 +433,12 @@ const allCards = {
 const displayCard = (card) => {
     let cardDisplay = document.createElement("div");
     cardDisplay.className = card.image;
+    cardDisplay.onclick = function() {playCard(this.className)} ;
 
     return cardDisplay;
 }
+
+
 
 // export {allCards};
 export {allCards, cardArr, displayCard};
