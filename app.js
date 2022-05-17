@@ -23,6 +23,16 @@ var gameRouter = require('./routes/game');
 
 var app = express();
 
+const session = require("express-session");
+//session middleware
+app.use(
+  session({
+    secret: "secret-key",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

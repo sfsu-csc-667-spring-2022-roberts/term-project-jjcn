@@ -1,23 +1,29 @@
 #header
-  div.header
-    div.logo
-        img.logo(src="../images/logo.png")
-    div.title
-        p Uno World
-    div.user-icon
-        img.user-icon(src="/images/userphoto.png")
-    div.hamburger
-        input#menu__toggle(type="checkbox")
-        label.menu__btn(for="menu__toggle")
-            span
-        ul.menu__box
-            li
-                a.menu__item(href="/lobby") Lobby
-            li
-                a.menu__item(href="/userprofile") My Profile
-            li
-                a.menu__item(href="/login") Login
-            li
-                a.menu__item(href="/lobby") Logout
-            li
-                a.menu__item(href="/register") Register
+    div.header
+        div.logo
+            img.logo(src="../images/logo.png")
+        div.title
+            p Uno World
+        div.user-icon
+            img.user-icon(src="/images/userphoto.png")
+        div.hamburger
+            input#menu__toggle(type="checkbox")
+            label.menu__btn(for="menu__toggle")
+                span
+            ul.menu__box
+                if sessionUser
+                    li
+                        p.menu__item= "Hi, " + sessionUser.username + "!"
+                    li
+                        a.menu__item(href="/lobby") Lobby
+                    li
+                        a.menu__item(href=`/userprofile/${sessionUser.id}`) My Profile
+                    li
+                        a.menu__item(href="/logout") Logout
+                else
+                    li
+                        a.menu__item(href="/lobby") Lobby
+                    li
+                        a.menu__item(href="/login") Login
+                    li
+                        a.menu__item(href="/register") Register

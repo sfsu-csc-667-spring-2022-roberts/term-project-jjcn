@@ -1,4 +1,4 @@
-
+import {playCard} from "./cardlogic.js";
 
 //Red card declarations
 
@@ -377,9 +377,11 @@ const allCards = {
     r7: r7,
     r8: r8,
     r9: r9,
-    r_rev: r_rev,
-    r_draw2: r_draw2,
-    r_skip: r_skip,
+
+//     r_rev: r_rev,
+//     r_draw2: r_draw2,
+//     r_skip: r_skip,
+
 
     y1: y1,
     y2: y2,
@@ -390,9 +392,10 @@ const allCards = {
     y7: y7,
     y8: y8,
     y9: y9,
-    y_rev: y_rev,
-    y_draw2: y_draw2,
-    y_skip: y_skip,
+
+//     y_rev: y_rev,
+//     y_draw2: y_draw2,
+//     y_skip: y_skip,
 
     g1: g1,
     g2: g2,
@@ -403,9 +406,10 @@ const allCards = {
     g7: g7,
     g8: g8,
     g9: g9,
-    g_rev: g_rev,
-    g_draw2: g_draw2,
-    g_skip: g_skip,
+
+//     g_rev: g_rev,
+//     g_draw2: g_draw2,
+//     g_skip: g_skip,
 
     b1: b1,
     b2: b2,
@@ -416,21 +420,27 @@ const allCards = {
     b7: b7,
     b8: b8,
     b9: b9,
-    b_rev: b_rev,
-    b_draw2: b_draw2,
-    b_skip: b_skip,
 
-    draw4: draw4,
-    wild: wild,
+//     b_rev: b_rev,
+//     b_draw2: b_draw2,
+//     b_skip: b_skip,
+//
+//     draw4: draw4,
+//     wild: wild,
 
 }
 
 const displayCard = (card) => {
     let cardDisplay = document.createElement("div");
     cardDisplay.className = card.image;
+    cardDisplay.onclick = function() {playCard(this.className)} ;
 
     return cardDisplay;
 }
 
+
+
 // export {allCards};
 export {allCards, cardArr, displayCard};
+
+
