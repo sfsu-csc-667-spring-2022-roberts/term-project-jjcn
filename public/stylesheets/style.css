@@ -35,8 +35,13 @@ body {
 
 }
 
-.playerOne > .unoCard:hover {
+.playerOne > .unoCard:hover,
+.playerTwo > .unoCard:hover,
+.playerThree > .unoCard:hover,
+.playerFour > .unoCard:hover {
     z-index: 99;
+    border: 5px solid whitesmoke;
+    cursor: pointer;
 }
 
 .playerTwo {
