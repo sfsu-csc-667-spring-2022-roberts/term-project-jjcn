@@ -4,10 +4,8 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/cards.css')
-    script(defer, type="module", src='/src/cardlogic.js')
-    script(defer, type="module", src='/src/gameManager.js')
+    script(src='/socket.io/socket.io.js')
 
   body
     include ./header.pug
     block content
-      

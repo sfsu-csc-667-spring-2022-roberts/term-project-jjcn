@@ -43,7 +43,7 @@ body {
     grid-area: right-deck;
     /*background-color: rgb(136, 187, 136);*/
     grid-template-rows: repeat(auto-fit,  minmax(10px, max-content)) ;
-    box-shadow: 0 0 50px 15px whitesmoke;
+    /*box-shadow: 0 0 50px 15px whitesmoke;*/
 }
 
 .playerThree {
@@ -167,6 +167,7 @@ a {
 .chat-box {
     flex: 2;
     position: relative;
+    max-width: 1086px;
 }
 
 .chat-box-content {
@@ -175,6 +176,7 @@ a {
     flex-direction: column;
     gap: 10px;
     height: 330px;
+    width: inherit;
     overflow-y: scroll;
 }
 
@@ -183,7 +185,7 @@ a {
     border: 1px solid black;
     background-color: #CFD8DC;
     height: auto;
-    width: max-content;
+    width: inherit;
     padding: 10px;
     display: flex;
     flex-direction: row;

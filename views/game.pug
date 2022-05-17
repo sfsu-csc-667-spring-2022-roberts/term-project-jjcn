@@ -3,26 +3,14 @@ extends layout
 block content
     div.grid-container
         div.playerOne.playerDeck
-            //- - let testdeck = ['unoCard red card1', 'unoCard yellow card5','unoCard blue card3', 'unoCard red reverse', 'unoCard yellow skip', 'unoCard blue draw2', 'unoCard green wild'];
-            //- each card in testdeck
-            //-      div(class = card)
         div.playerTwo.playerDeck
-
         div.playerThree.playerDeck
-            //-  -
-            //-  each card in deck
-            //-      div(class = card)
-
-
         div.playerFour.playerDeck
-            //- div.unoCard.card-back.rotate90
-            //- div.unoCard.card-back.rotate90
-            //- div.unoCard.card-back.rotate90
-            //- div.unoCard.card-back.rotate90
-            //- div.unoCard.card-back.rotate90
-            //- div.unoCard.card-back.rotate90
-            //- div.unoCard.card-back.rotate90
         div.pile
-            div.throwDeck ThrowD
+            div.throwDeck ThrowDeck
             div.pullDeck.unoCard.card-back PullDeck
         div.chat Chat
+
+
+    script(defer, type="module", src='/src/cardlogic.js')
+    script(defer, type="module", src='/src/gameManager.js')
